@@ -1,5 +1,5 @@
 import {describe, expect, it} from '@jest/globals';
-import {runSolution} from './day01';
+import {solve} from './day01';
 
 describe('day01', () => {
     it.each([
@@ -16,7 +16,14 @@ describe('day01', () => {
 
         [')))', -3],
         [')())())', -3],
-    ])('instructions %p, expected %p', (instructions: string, expected: number) => {
-        expect(runSolution(instructions)).toEqual(expected);
+    ])('part 1: instructions %p, expected %p', (instructions: string, expected: number) => {
+        expect(solve(instructions)[0]).toEqual(expected);
+    });
+
+    it.each([
+        [')', 1],
+        ['()())', 5],
+    ])('part 2: instructions %p, expected %p', (instructions: string, expected: number) => {
+        expect(solve(instructions)[1]).toEqual(expected);
     });
 });
