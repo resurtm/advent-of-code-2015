@@ -1,0 +1,23 @@
+{
+  "name": "advent-of-code-2015",
+  "version": "1.0.0",
+  "description": "Advent of Code 2015. TypeScript solutions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resurtm/advent-of-code-2015.git"
+  },
+  "author": "resurtm@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/resurtm/advent-of-code-2015/issues"
+  },
+  "homepage": "https://github.com/resurtm/advent-of-code-2015#readme",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
