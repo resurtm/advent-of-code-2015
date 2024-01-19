@@ -19,14 +19,18 @@ public class Day01Solution {
         final Stream<String> lines = Files.lines(Paths.get(
                 String.format("../../input/day02/%s.txt", kind)
         ));
-        final String presents = lines.collect(Collectors.joining("\n"));
+        final List<String> presents = List.of(
+                lines.collect(Collectors.joining("\n")).split("\n")
+        );
         lines.close();
 
-        final int part1 = solve(List.of(presents.split("\n")));
+        final int part1 = solvePart1(presents);
+        final int part2 = solvePart2(presents);
         System.out.printf("Day 02, part 1, %s: %d\n", kind, part1);
+        System.out.printf("Day 02, part 2, %s: %d\n", kind, part2);
     }
 
-    int solve(final Collection<String> presents) {
+    int solvePart1(final Collection<String> presents) {
         int result = 0;
         for (final String present : presents) {
             final List<Integer> dimensions = Arrays.stream(present.split("x"))
@@ -49,6 +53,24 @@ public class Day01Solution {
                 result += c;
             }
             result += 2 * a + 2 * b + 2 * c;
+        }
+        return result;
+    }
+
+
+    int solvePart2(final Collection<String> presents) {
+        int result = 0;
+        for (final String present : presents) {
+            final List<Integer> dimensions = Arrays.stream(present.split("x"))
+                    .map(x -> Integer.parseInt(x, 10))
+                    .sorted()
+                    .toList();
+
+            int a = dimensions.get(0);
+            int b = dimensions.get(1);
+            int c = dimensions.get(2);
+
+            result += 2 * a + 2 * b + a * b * c;
         }
         return result;
     }
