@@ -57,7 +57,6 @@ public class Day01Solution {
         return result;
     }
 
-
     int solvePart2(final Collection<String> presents) {
         int result = 0;
         for (final String present : presents) {
