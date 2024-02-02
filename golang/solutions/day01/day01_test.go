@@ -5,10 +5,12 @@ import (
 	"testing"
 )
 
-var testCases = []struct {
+type testCase struct {
 	inp      string
 	expected int
-}{
+}
+
+var testCasesPart1 = []testCase{
 	{"(())", 0},
 	{"()()", 0},
 
@@ -24,9 +26,23 @@ var testCases = []struct {
 	{")())())", -3},
 }
 
-func TestSolveInternal(t *testing.T) {
-	for _, tc := range testCases {
-		actual := day01.SolveInternal(tc.inp)
+func TestSolveInternalPart1(t *testing.T) {
+	for _, tc := range testCasesPart1 {
+		actual, _ := day01.SolveInternal(tc.inp)
+		if actual != tc.expected {
+			t.Fatalf("inp='%s', expected='%d', actual='%d'", tc.inp, tc.expected, actual)
+		}
+	}
+}
+
+var testCasesPart2 = []testCase{
+	{")", 1},
+	{"()())", 5},
+}
+
+func TestSolveInternalPart2(t *testing.T) {
+	for _, tc := range testCasesPart2 {
+		_, actual := day01.SolveInternal(tc.inp)
 		if actual != tc.expected {
 			t.Fatalf("inp='%s', expected='%d', actual='%d'", tc.inp, tc.expected, actual)
 		}
