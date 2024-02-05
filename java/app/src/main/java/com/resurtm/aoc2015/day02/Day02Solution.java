@@ -1,4 +1,4 @@
-package com.resurtm.aoc2015.day01;
+package com.resurtm.aoc2015.day02;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Day01Solution {
+public class Day02Solution {
     public void run() throws IOException {
         runInternal("github");
         runInternal("google");
