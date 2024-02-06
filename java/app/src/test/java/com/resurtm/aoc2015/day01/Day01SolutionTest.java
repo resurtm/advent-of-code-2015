@@ -28,4 +28,18 @@ public class Day01SolutionTest {
                 Arguments.of(-3, ")())())")
         );
     }
+
+    @ParameterizedTest
+    @MethodSource("provideTestSolvePart2Cases")
+    public void testSolvePart2(final int expected, final String moves) {
+        final int actual = (new Day01Solution()).solvePart2(moves);
+        assertEquals(expected, actual);
+    }
+
+    private static Stream<Arguments> provideTestSolvePart2Cases() {
+        return Stream.of(
+                Arguments.of(1, ")"),
+                Arguments.of(5, "()())")
+        );
+    }
 }
