@@ -9,11 +9,13 @@ solve :: proc() {
 		fmt.eprintln("Cannot read data file:", err)
 		return
 	}
-	fmt.println("Day 01, part 1:", solve_internal(string(data)))
+	part1, part2 := solve_internal(string(data))
+	fmt.println("Day 01, part 1:", part1)
+	fmt.println("Day 01, part 2:", part2)
 }
 
-solve_internal :: proc(inp: string) -> int {
-	pos := 0
+solve_internal :: proc(inp: string) -> (int, int) {
+	pos, basement := 0, -1
 	for i := 0; i < len(inp); i += 1 {
 		switch inp[i] {
 		case '(':
@@ -21,6 +23,9 @@ solve_internal :: proc(inp: string) -> int {
 		case ')':
 			pos -= 1
 		}
+		if pos == -1 && basement == -1 {
+			basement = i + 1
+		}
 	}
-	return pos
+	return pos, basement
 }
